@@ -21,7 +21,7 @@ int main(int argc,char* argv[])
     char token[1000];
     int flag;
 
-    char *fname=argv[1];
+    char *fname="a.txt";
     FILE *in;
     in=fopen(fname,"r");
 
@@ -60,11 +60,13 @@ int main(int argc,char* argv[])
             //printf("other\n");
             for(int i = 1;i <= 5; i++){
                 if(c == symbol[i]){
+                    flag = 1;
                     printf("%s\n",sout[i]);
                     break;
                 }
             }
             if(c == symbol[0]){
+                flag = 1;
                 char tmp;
                 tmp = fgetc(in);
                 if(tmp == symbol[6]){
@@ -76,6 +78,10 @@ int main(int argc,char* argv[])
                 }
             }
             c = fgetc(in);
+        }
+        if(flag == 0){
+            printf("%s\n",err);
+            break;
         }
     }
 	return 0;
