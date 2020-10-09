@@ -21,7 +21,7 @@ int main(int argc,char* argv[])
     char token[1000];
     int flag;
 
-    char *fname="a.txt";
+    char *fname=argv[1];
     FILE *in;
     in=fopen(fname,"r");
 
